@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navRec: "Grabaciones",
             navContact: "Contacto",
             heroSubtitle: "HACIENDO TEMBLAR LAS CALLES",
-            heroCta: "¡CONTACTANOS!",
+            heroCta: "¡CONT<span class='fake-accent'>A</span>CTANOS!",
             marquee1: "LA MEJOR MUSICA",
             marquee2: "AMBIENTE INCREIBLE",
             marquee3: "PURA FIESTA",

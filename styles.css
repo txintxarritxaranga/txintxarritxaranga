@@ -363,6 +363,23 @@ html {
     border-color: #fff;
 }
 
+/* Fake Accent for fonts that don't support them */
+.fake-accent {
+    position: relative;
+    display: inline-block;
+}
+
+.fake-accent::after {
+    content: "";
+    position: absolute;
+    top: 0.1em;
+    left: 55%;
+    width: 0.2em;
+    height: 0.06em;
+    background: currentColor;
+    transform: translateX(-50%) rotate(-20deg);
+}
+
 /* Marquee Section */
 .marquee-section {
     background-color: var(--blue);
