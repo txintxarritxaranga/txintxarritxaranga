@@ -372,7 +372,7 @@ html {
 .fake-accent::after {
     content: "";
     position: absolute;
-    top: 0.1em;
+    top: -0.05em;
     left: 55%;
     width: 0.2em;
     height: 0.06em;
