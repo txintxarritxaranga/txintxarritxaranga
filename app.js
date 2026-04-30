@@ -167,9 +167,14 @@ document.addEventListener('DOMContentLoaded', () => {
     langBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.getAttribute('data-lang');
+            
             // Update active state
             langBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+            
+            // Update parent switch state for slider animation
+            const parent = btn.closest('.lang-switch');
+            if (parent) parent.setAttribute('data-lang', lang);
             
             // Translate all data-i18n elements
             document.querySelectorAll('[data-i18n]').forEach(el => {

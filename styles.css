@@ -193,11 +193,14 @@ html {
 .lang-switch {
     display: flex;
     align-items: center;
-    gap: 0.1rem;
+    position: relative;
     background: rgba(0, 0, 0, 0.2);
-    padding: 0.2rem;
-    border-radius: 12px;
+    padding: 4px;
+    border-radius: 50px;
     border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 110px;
+    height: 44px;
+    overflow: hidden;
 }
 
 .main-nav.scrolled .lang-switch,
@@ -206,33 +209,60 @@ html {
     background: rgba(0, 0, 0, 0.05);
 }
 
+.lang-slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 49px;
+    height: 32px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), background-image 0.3s ease;
+    z-index: 1;
+    border: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.lang-switch[data-lang="eu"] .lang-slider {
+    background-image: url('assets/ikurrina.webp');
+    transform: translateX(0);
+}
+
+.lang-switch[data-lang="es"] .lang-slider {
+    background-image: url('assets/espana.webp');
+    transform: translateX(49px);
+}
+
 .lang-btn {
-    background: none;
+    flex: 1;
+    background: none !important;
     border: none;
     color: #fff;
     font-family: var(--font-body);
     font-weight: 900;
     cursor: pointer;
-    padding: 5px 12px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    font-size: 0.75rem;
+    padding: 0;
+    z-index: 2;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    font-size: 0.8rem;
     letter-spacing: 1px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
 }
 
-.lang-btn.active[data-lang="eu"] {
-    background-image: url('assets/ikurrina.webp');
-    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+.lang-btn.active {
+    opacity: 1;
+    color: #fff;
 }
 
-.lang-btn.active[data-lang="es"] {
-    background-image: url('assets/españa.webp');
-    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-}
+.main-nav.scrolled .lang-btn:not(.active),
+.main-nav.menu-open .lang-btn:not(.active) {
+    color: var(--text-color);
+}}
 
 .main-nav.scrolled .lang-btn,
 .main-nav.menu-open .lang-btn {
@@ -320,7 +350,6 @@ html {
     max-width: 700px;
     height: auto;
     filter: drop-shadow(0px 0px 20px rgba(255, 107, 0, 0.7));
-    animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
