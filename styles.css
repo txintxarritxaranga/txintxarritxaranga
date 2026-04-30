@@ -537,36 +537,7 @@ html {
     filter: brightness(1.06) saturate(1.1);
 }
 
-/* Banner Break Interactive Grid */
-.banner-break {
-    height: 150px;
-    background: var(--bg-color);
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 40px);
-    grid-auto-rows: 40px;
-    justify-content: center;
-    align-content: center;
-    overflow: hidden;
-    padding: 0;
-    cursor: crosshair;
-    position: relative;
-    border-top: 2px solid rgba(0,0,0,0.05);
-    border-bottom: 2px solid rgba(0,0,0,0.05);
-}
 
-.grid-dot {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: rgba(0, 0, 0, 0.1);
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.4s ease, text-shadow 0.4s ease, opacity 0.4s ease;
-    pointer-events: none;
-    will-change: transform;
-    opacity: 0.5;
-}
 
 /* YouTube Promo Section */
 .youtube-promo {
