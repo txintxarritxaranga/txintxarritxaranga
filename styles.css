@@ -401,43 +401,54 @@ html {
 
 /* Marquee Section */
 .marquee-section {
-    background-color: var(--blue);
-    padding: 2.5rem 0;
-    overflow: hidden;
-    transform: rotate(-3deg) scale(1.05);
-    margin-top: -3rem;
+    background: linear-gradient(90deg, var(--blue) 0%, #06b6d4 50%, var(--blue) 100%);
+    padding: 1rem 0; /* Cinta mucho más estrecha */
+    overflow: visible; /* Permitimos que los iconos puedan resaltar si hace falta */
+    transform: rotate(-2.5deg) scale(1.02);
+    margin-top: -3.5rem;
     z-index: 20;
     position: relative;
     border-top: 5px solid #fff;
     border-bottom: 5px solid #fff;
-    box-shadow: 0px 0px 20px rgba(5, 155, 212, 0.4);
+    box-shadow: 0px 10px 40px rgba(5, 155, 212, 0.4);
 }
 
 .marquee {
     white-space: nowrap;
     overflow: hidden;
     display: flex;
+    height: 11rem; /* Altura fija para controlar la cinta */
+    align-items: center;
 }
 
 .marquee-content {
     display: flex;
-    animation: scroll 20s linear infinite;
+    animation: scroll 25s linear infinite;
     align-items: center;
 }
 
 .marquee-content span {
     font-family: var(--font-display);
-    font-size: 5rem;
+    font-size: 4.5rem; /* Texto más pequeño para que resalten los iconos */
     color: #fff;
     padding: 0 3rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
-.marquee-content .marquee-icon {
-    font-size: 4rem;
-    padding: 0 1rem;
+.marquee-img {
+    height: 10rem; /* Iconos grandes que llenan la cinta */
+    width: auto;
+    padding: 0 3rem;
     display: inline-block;
     vertical-align: middle;
+    filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.marquee-img:hover {
+    transform: scale(1.1);
 }
 
 @keyframes scroll {
@@ -1020,6 +1031,15 @@ html {
         padding: 1.2rem 2.5rem;
     }
 
+    /* About Section Mobile */
+    .about-section {
+        padding: 8rem 10vw; /* Más margen lateral en móvil */
+    }
+
+    .about-grid {
+        gap: 4rem;
+    }
+
     /* Marquee Section */
     .marquee-section {
         padding: 1.2rem 0;
@@ -1127,3 +1147,46 @@ html {
     }
 }
 
+/* Mobile adjustments for Marquee */
+@media (max-width: 768px) {
+    .marquee-section {
+        padding: 0.8rem 0;
+        margin-top: -2.5rem;
+        border-top-width: 4px;
+        border-bottom-width: 4px;
+    }
+    
+    .marquee {
+        height: 7rem;
+    }
+    
+    .marquee-content span {
+        font-size: 3rem;
+        padding: 0 2rem;
+    }
+    
+    .marquee-img {
+        height: 5.5rem;
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee-section {
+        margin-top: -2rem;
+    }
+    
+    .marquee {
+        height: 5.5rem;
+    }
+    
+    .marquee-content span {
+        font-size: 2.2rem;
+        padding: 0 1.5rem;
+    }
+    
+    .marquee-img {
+        height: 4.5rem;
+        padding: 0 1rem;
+    }
+}
