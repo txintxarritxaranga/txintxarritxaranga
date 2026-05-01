@@ -330,7 +330,8 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 5rem; /* Bajamos el logo un poco */
     line-height: 0.85;
 }
 
