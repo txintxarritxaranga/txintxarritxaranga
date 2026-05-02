@@ -100,12 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Loop teaser video only up to 20 seconds
+    // Smart loop for teaser video to avoid initial and final black frames
     const teaserVideo = document.getElementById('teaser-video');
     if (teaserVideo) {
+        // Force start at 2s to skip initial black
+        teaserVideo.addEventListener('loadedmetadata', () => {
+            if (teaserVideo.currentTime < 2) teaserVideo.currentTime = 2;
+        });
+
         teaserVideo.addEventListener('timeupdate', () => {
+            // If it reaches second 20, loop back to 2s
             if (teaserVideo.currentTime >= 20) {
-                teaserVideo.currentTime = 0;
+                teaserVideo.currentTime = 2;
                 teaserVideo.play();
             }
         });

@@ -643,6 +643,7 @@ html {
 .studio-video {
     width: 100%;
     display: block;
+    filter: brightness(1.25) contrast(1.1); /* Punto medio ideal */
 }
 
 .promo-btn {
@@ -960,6 +961,7 @@ html {
         border-radius: 0;
         backdrop-filter: none;
         background: transparent;
+        box-shadow: none; /* Eliminamos la sombra que hereda de escritorio */
     }
 
     .main-nav.menu-open,
@@ -968,7 +970,8 @@ html {
         width: 100%;
         border: none;
         border-radius: 0;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        box-shadow: none; /* Quitamos la sombra que puede parecer una línea */
+        background: rgba(255, 255, 255, 0.95); /* Le damos un fondo sólido al hacer scroll para que sea legible */
     }
 
     /* Navigation Mobile */
@@ -982,6 +985,25 @@ html {
         margin-left: auto;
         margin-right: 1.5rem;
         transform: scale(0.9);
+    }
+
+    .lang-btn {
+        color: #fff; /* Blanco para destacar al principio */
+    }
+
+    .lang-btn.active {
+        color: #fff !important; /* Siempre blanco si está activo */
+        opacity: 1;
+    }
+
+    .main-nav.scrolled .lang-btn:not(.active),
+    .main-nav.menu-open .lang-btn:not(.active) {
+        color: var(--text-color); /* Solo los NO activos pasan a oscuro */
+    }
+
+    .menu-toggle span {
+        background-color: var(--blue); /* Rayas azules */
+        box-shadow: 1px 1px 0px #023d55; /* Relieve azul oscuro */
     }
 
     .nav-links {
